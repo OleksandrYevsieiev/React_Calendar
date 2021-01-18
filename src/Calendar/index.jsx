@@ -1,19 +1,19 @@
 import React from 'react';
-import Day from './Day';
+import CurrentDay from './CurrentDay';
 import Month from './Month';
-import PropTypes from 'prop-types';
-import styles from './styles';
+import propTypes from 'prop-types';
+import styles from './Calendar.module.scss';
 
 const Calendar = ({ currentDate }) => {
   return (
     <article className={styles.container}>
-      <Day currentDate={currentDate} />
+      <CurrentDay currentDate={currentDate} />
       <Month date={currentDate} currentDate={currentDate} />
     </article>
   );
 };
 
-Calendar.propTypes = { currentDate: PropTypes.instanceOf(Date) };
+Calendar.propTypes = { currentDate: propTypes.instanceOf(Date) };
 Calendar.defaultProps = { currentDate: new Date() };
 
 export default Calendar;
