@@ -1,19 +1,31 @@
-import React from 'react';
-import CurrentDay from './CurrentDay';
-import Month from './Month';
-import propTypes from 'prop-types';
-import styles from './Calendar.module.scss';
+import React, { useState } from 'react';
+import addMonths from 'date-fns/addMonths';
+import subMonths from 'date-fns/subMonths';
+import Header from './Header';
+import WeekDays from './WeekDays';
+import Cells from './Cells';
+import styles from './Calendar.module.css';
 
-const Calendar = ({ currentDate }) => {
+const Calendar = () => {
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const nextMonth = () => {
+    setCurrentDate(addMonths(currentDate, 1));
+  };
+
+  const prevMonth = () => {
+    setCurrentDate(subMonths(currentDate, 1));
+  };
   return (
-    <article className={styles.container}>
-      <CurrentDay currentDate={currentDate} />
-      <Month date={currentDate} currentDate={currentDate} />
-    </article>
+    <div className={styles.calendar}>
+      <Header
+        currentDate={currentDate}
+        prevMonth={prevMonth}
+        nextMonth={nextMonth}
+      />
+      <WeekDays currentDate={currentDate} />
+      <Cells currentDate={currentDate} />
+    </div>
   );
 };
-
-Calendar.propTypes = { currentDate: propTypes.instanceOf(Date) };
-Calendar.defaultProps = { currentDate: new Date() };
 
 export default Calendar;
