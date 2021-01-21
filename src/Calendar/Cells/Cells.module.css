@@ -1,0 +1,29 @@
+.row {
+  display: flex;
+  padding: 15px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.number {
+  font-size: 38px;
+  font-weight: 200;
+  margin: 0 auto;
+}
+
+.currentDate {
+  font-size: 38px;
+  font-weight: 400;
+  margin: 0 auto;
+  color: white;
+  border-radius: 50%;
+  background-color: red;
+  padding: 10px;
+}
+
+.anotherMonthDate {
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0 auto;
+  color: lightseagreen;
+}
